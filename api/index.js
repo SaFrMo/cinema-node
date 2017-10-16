@@ -2,14 +2,23 @@ const express = require('express')
 const fs = require('fs')
 const router = express.Router()
 
-router.get('/', (req, res) => {
+router.get('/heartbeat', (req, res) => {
     res.json({
         message: 'API up and running!'
     })
 })
 
-router.get('/sample', (req, res) => {
-    const path = 'assets/sample.mp4'
+router.get('/:show/:season?/:episode', (req, res) => {
+    const path = `assets/${ req.params.show }/${ req.params.season || '' }${ req.params.episode }.mp4`
+
+    if( !fs.existsSync(path) ){
+        res.status(404)
+        res.json({
+            message: `Show '${ req.params.show }' episode '${ req.params.episode }' not found.`
+        })
+        return
+    }
+
     const fileSize = fs.statSync(path).size
     const range = req.headers.range
 

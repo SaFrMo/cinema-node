@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const router = require('./api')
 
-app.use('/api', router)
+app.use('/v1', router)
 
 app.use('*', express.static('public'))
 
