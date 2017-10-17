@@ -15,6 +15,36 @@ router.get('/heartbeat', (req, res) => {
     })
 })
 
+router.get('/shows', (req, res) => {
+    const output = {
+        data: {
+            shows: fs.readdirSync(basePath)
+        }
+    }
+    res.json(output)
+})
+
+router.get('/shows/:show', (req, res) => {
+    const showPath = basePath + req.params.show
+
+    if( !fs.existsSync(showPath) ){
+        res.status(404).json({
+            errors: [
+                {
+                    title: 'Show not found',
+                    detail: `Show '${ req.params.show }' not found.`
+                }
+            ]
+        })
+    }
+    const output = {
+        data: {
+            episodes: fs.readdirSync(showPath)
+        }
+    }
+    res.status(200).json(output)
+})
+
 router.get('/:show/:season?/:episode', (req, res) => {
     const path = `${ basePath }${ req.params.show }/${ req.params.season || '' }${ req.params.episode }.mp4`
 
