@@ -7,6 +7,7 @@ if( !fs.existsSync('api/config.json') ){
     fs.writeFileSync('api/config.json', '{}')
 }
 const config = require('./config.json')
+const basePath = config.path || ''
 
 router.get('/heartbeat', (req, res) => {
     res.json({
@@ -14,8 +15,8 @@ router.get('/heartbeat', (req, res) => {
     })
 })
 
-router.get('/:show/:season?/:episode', (req, res) => {
-    const path = `assets/${ req.params.show }/${ req.params.season || '' }${ req.params.episode }.mp4`
+router.get(':show/:season?/:episode', (req, res) => {
+    const path = `${ basePath }${ req.params.show }/${ req.params.season || '' }${ req.params.episode }.mp4`
 
     if( !fs.existsSync(path) ){
         res.status(404)
