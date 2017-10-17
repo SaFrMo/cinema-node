@@ -2,6 +2,12 @@ const express = require('express')
 const fs = require('fs')
 const router = express.Router()
 
+// Make sure a config file exists
+if( !fs.existsSync('api/config.json') ){
+    fs.writeFileSync('api/config.json', '{}')
+}
+const config = require('./config.json')
+
 router.get('/heartbeat', (req, res) => {
     res.json({
         message: 'API up and running!'
