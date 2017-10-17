@@ -15,7 +15,7 @@ router.get('/heartbeat', (req, res) => {
     })
 })
 
-router.get(':show/:season?/:episode', (req, res) => {
+router.get('/:show/:season?/:episode', (req, res) => {
     const path = `${ basePath }${ req.params.show }/${ req.params.season || '' }${ req.params.episode }.mp4`
 
     if( !fs.existsSync(path) ){
