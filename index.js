@@ -4,8 +4,14 @@ const router = require('./api')
 
 app.use('/v1', router)
 
-app.use('*', express.static('public'))
+app.use('*', (req, res) => {
+    res.status(404).json({
+        data: {
+            message: "Path not found."
+        }
+    })
+})
 
 app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+    console.log('cinema-node listening on port 3000!')
 })
