@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const router = require('./api')
 const path = require('path')
+const cors = require('cors')
+
+app.use(cors())
 
 app.use('/v1', router)
 
