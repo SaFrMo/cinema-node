@@ -1,14 +1,21 @@
-cinema-node is a lightweight Node/Express server + API for local video streaming.
+# cinema
 
-# Usage
-```sh
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
 npm install
-npm run server
+
+# serve with hot reload at localhost:3000
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
 ```
 
-# API
-All endpoints are under `/v1`.
-
-* `GET /` - returns
-* `GET /heartbeat` - returns `message: 'API up and running!'` if running.
-* TODO: Document others
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
