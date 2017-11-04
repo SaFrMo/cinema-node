@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import _get from 'lodash/get'
 
 Vue.config.productionTip = false
 
@@ -13,5 +14,10 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: { App }
+    components: { App },
+    computed: {
+        currentData () {
+            return _get(this.$store, `state.cache['${this.$route.path}'].data`)
+        }
+    }
 })
