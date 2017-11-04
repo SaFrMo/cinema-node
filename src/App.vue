@@ -36,7 +36,7 @@ export default {
 }
 .router-view {
     position: absolute;
-    width: 100%;
+    width: 100vw;
 }
 
 /* Dot list - used in several places */
