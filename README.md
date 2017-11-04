@@ -1,21 +1,23 @@
-# cinema
+Node.js self-hosted cinema.
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:3000
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+# Usage
+```
+npm i
+npm run server
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Then connect to localhost:3000 on your machine or the local IP (192.168.x.x:3000) on another machine to run!
+
+# Adding New Media
+To add new videos:
+1. Download the mp4 file.
+1. Place in `static/assets/YOUR-SHOW-NAME`.
+1. Restart the server and you'll be set.
+
+# Development
+```
+npm i
+npm run dev
+```
+
+Runs a hot-reloading dev server. Cinema-Node is built with a simple Node API and a full-featured Vue client.
