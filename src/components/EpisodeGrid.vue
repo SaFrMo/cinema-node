@@ -5,8 +5,9 @@
 
     <transition name="fade" mode="out-in">
         <div key="video" v-if="$route.params.episode">
-            <video :src="`/v1/shows${ $route.path }`" autoplay playsinline controls></video>
             <router-link :to="`/${ $route.params.show }`">Back</router-link>
+            <br/>
+            <video :src="`/v1/shows${ $route.path }`" autoplay playsinline controls></video>
         </div>
 
         <div key="list" v-else>
