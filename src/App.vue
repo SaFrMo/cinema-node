@@ -26,6 +26,10 @@ export default {
 </script>
 
 <style>
+body {
+    overflow-x: 0;
+    margin: 0;
+}
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -33,9 +37,10 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    overflow-x: hidden;
 }
 .router-view {
-    position: absolute;
+    position: fixed;
     width: 100vw;
 }
 
@@ -45,6 +50,7 @@ export default {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .dot-list a {
     text-transform: uppercase;
@@ -80,11 +86,11 @@ export default {
 }
 .slide-right-enter,
 .slide-left-leave-to {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
 }
 .slide-right-leave-to,
 .slide-left-enter {
-    transform: translateX(100vw);
+    transform: translateX(100%);
 }
 
 </style>
